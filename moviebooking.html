@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="changePoster()">
+
+<div class="container">
+
+    <h2>🎬 Movie Ticket Booking</h2>
+
+    <label>Select Movie</label>
+    <select id="movie" onchange="changePoster()">
+        <option value="150">Leo - ₹250</option>
+        <option value="200">Blast - ₹200</option>
+        <option value="180">Jailer - ₹180</option>
+        <option value="220">Sirai - ₹150</option>
+    </select>
+
+    <img id="moviePoster"
+    src="images (2).jpeg" alt="Movie poster">
+
+    <label>Show Time</label>
+    <select id="time">
+        <option>10:00 AM</option>
+        <option>01:00 PM</option>
+        <option>06:00 PM</option>
+        <option>09:00 PM</option>
+    </select>
+
+    <label>Number of Seats</label>
+    <input type="number" id="seats" max="72" value="1">
+
+    <button id="bookButton" type="button">Book Ticket</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const movieSelect = document.getElementById("movie");
+        const bookButton = document.getElementById("bookButton");
+
+        movieSelect.addEventListener("change", changePoster);
+        bookButton.addEventListener("click", calculatePrice);
+
+        changePoster();
+    });
+
+    function changePoster(){
+        const movie = document.getElementById("movie").selectedIndex;
+        const poster = document.getElementById("moviePoster");
+
+        if(movie == 0){
+            poster.src = "images (2).jpeg";
+        }
+        else if(movie == 1){
+            poster.src = "images.jpeg";
+        }
+        else if(movie == 2){
+            poster.src = "images (4).jpeg";
+        }
+        else{
+            poster.src = "images (3).jpeg";
+        }
+    }
+
+    function calculatePrice(){
+        const movie = document.getElementById("movie");
+        const movieName = movie.options[movie.selectedIndex].text;
+        const price = Number(movie.value);
+        const seats = Number(document.getElementById("seats").value || 1);
+        const time = document.getElementById("time").value;
+        const total = price * seats;
+
+        document.getElementById("output").innerHTML =
+            "<h3>Booking Confirmed</h3>" +
+            "<p>Movie: " + movieName + "</p>" +
+            "<p>Time: " + time + "</p>" +
+            "<p>Seats: " + seats + "</p>" +
+            "<p>Total Price: ₹" + total + "</p>";
+    }
+</script>
+</body>
+</html>
