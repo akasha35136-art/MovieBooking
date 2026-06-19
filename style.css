@@ -1,0 +1,114 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    margin:0;
+    background: radial-gradient(circle at top, #1b0b28 0%, #090713 45%, #050408 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    overflow-x:hidden;
+    color:#f0f0ff;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,215,255,0.18), transparent 12%),
+        radial-gradient(circle at 85% 10%, rgba(120,180,255,0.16), transparent 14%),
+        radial-gradient(circle at 50% 90%, rgba(255,110,160,0.12), transparent 16%),
+        linear-gradient(135deg, rgba(255,50,160,0.08), transparent 35%),
+        linear-gradient(215deg, rgba(50,180,255,0.06), transparent 25%);
+    pointer-events:none;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
+    opacity:0.15;
+    pointer-events:none;
+}
+
+.container{
+    width:min(560px,100%);
+    background: rgba(8,10,25,0.96);
+    padding:34px 30px;
+    border-radius:28px;
+    box-shadow:0 40px 90px rgba(0,0,0,0.45);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    position:relative;
+    z-index:1;
+}
+
+h2{
+    text-align:center;
+    color:#ff6fb5;
+    margin-bottom:22px;
+    letter-spacing:0.08em;
+}
+
+label{
+    font-weight:bold;
+}
+
+select,
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+#moviePoster{
+    width:200px;
+    height:280px;
+    display:block;
+    margin:15px auto;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#ff3f7b;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:700;
+    transition:transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover{
+    transform:translateY(-1px);
+    background:#ff5695;
+}
+
+#output{
+    margin-top:20px;
+    padding:16px;
+    background: rgba(255,255,255,0.95);
+    color:#141414;
+    border-radius:12px;
+    border:1px solid rgba(0,0,0,0.08);
+}
+
+#output p{
+    margin:10px 0 0;
+}
+
+#output h3{
+    margin:0 0 10px;
+    color:#c40050;
+}
